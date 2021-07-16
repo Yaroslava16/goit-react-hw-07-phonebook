@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
-import { addContact } from '../../redux/phonebook/phonebook-actions';
+import addContact from '../../redux/phonebook/phonebook-operations';
 import styles from '../Form/Form.module.css';
 
 class Form extends Component {
