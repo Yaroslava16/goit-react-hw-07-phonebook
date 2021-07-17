@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
-import addContact from '../../redux/phonebook/phonebook-operations';
+import { addContact } from '../../redux/phonebook/phonebook-operations';
 import styles from '../Form/Form.module.css';
 
 class Form extends Component {
@@ -21,8 +21,9 @@ class Form extends Component {
   };
 
   handleSubmit = e => {
+    const { name, number } = this.state;
     e.preventDefault();
-    this.props.addContact(this.state);
+    this.props.addContact(name, number);
     this.reset();
   };
 

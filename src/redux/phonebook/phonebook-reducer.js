@@ -1,6 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import { addContactSuccess, deleteContact, filter } from './phonebook-actions';
+import {
+  addContactSuccess,
+  deleteContactSuccess,
+  filter,
+} from './phonebook-actions';
 import shortid from 'shortid';
 
 const contactsInitialState = [
@@ -12,7 +16,7 @@ const contactsInitialState = [
 
 const сontactsReducer = createReducer(contactsInitialState, {
   [addContactSuccess]: (state, { payload }) => [payload, ...state],
-  [deleteContact]: (state, { payload }) =>
+  [deleteContactSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
 
