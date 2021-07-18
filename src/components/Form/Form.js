@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
-import { addContact } from '../../redux/phonebook/phonebook-operations';
+import { addContact } from '../../redux/phonebook';
 import styles from '../Form/Form.module.css';
-import { getAdd } from '../../redux/phonebook/phonebook-selectors';
+import { getAdd } from '../../redux/phonebook';
 
 class Form extends Component {
   state = {

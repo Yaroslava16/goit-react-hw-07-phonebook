@@ -1,10 +1,7 @@
 import { connect } from 'react-redux';
-import {
-  deleteContact,
-  fetchContacts,
-} from '../../redux/phonebook/phonebook-operations';
+import { deleteContact, fetchContacts } from '../../redux/phonebook';
 import ContactsList from './ContactsList';
-import { getVisibleContacts } from '../../redux/phonebook/phonebook-selectors';
+import { getVisibleContacts } from '../../redux/phonebook';
 
 const mapStateToProps = state => ({
   contacts: getVisibleContacts(state),

@@ -8,7 +8,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import logger from 'redux-logger';
-import phonebookReducer from './phonebook/phonebook-reducer';
+import { phonebookReducer } from './phonebook';
 
 const myMiddleware = store => next => action => {
   console.log('Прослойка', action);
