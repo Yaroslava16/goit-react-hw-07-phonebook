@@ -2,24 +2,38 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import styles from '../Contacts/Contacts.module.css';
-import { deleteContact } from '../../redux/phonebook/phonebook-operations';
+import {
+  deleteContact,
+  fetchContacts,
+} from '../../redux/phonebook/phonebook-operations';
+import { Component } from 'react';
 
-const Contacts = ({ contacts, onDelete }) => (
-  <>
-    <ul className={styles.list}>
-      {contacts.map(({ name, id, number }) => (
-        <li className={styles.itemContact} key={id}>
-          <span>
-            {name}: {number}
-          </span>
-          <button className={styles.btn} onClick={() => onDelete(id)}>
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
-  </>
-);
+class Contacts extends Component {
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
+
+  render() {
+    const { contacts, onDelete } = this.props;
+
+    return (
+      <>
+        <ul className={styles.list}>
+          {contacts.map(({ name, id, number }) => (
+            <li className={styles.itemContact} key={id}>
+              <span>
+                {name}: {number}
+              </span>
+              <button className={styles.btn} onClick={() => onDelete(id)}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      </>
+    );
+  }
+}
 
 // Contacts.propTypes = {
 //   contacts: PropTypes.arrayOf(
@@ -46,6 +60,7 @@ const mapStateToProps = ({ phonebook: { filter, contacts } }) => ({
 
 const mapDispatchToProps = dispatch => ({
   onDelete: id => dispatch(deleteContact(id)),
+  fetchContacts: () => dispatch(fetchContacts()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contacts);

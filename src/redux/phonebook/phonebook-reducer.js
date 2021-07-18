@@ -6,7 +6,6 @@ import {
   deleteContactSuccess,
   filter,
 } from './phonebook-actions';
-// import shortid from 'shortid';
 
 const сontactsReducer = createReducer([], {
   [fetchContactsSuccess]: (_, { payload }) => payload,
