@@ -42,6 +42,7 @@ class Form extends Component {
           <label htmlFor={this.nameInputId} className={styles.label}>
             Name
             <input
+              autoComplete="off"
               className={styles.input}
               type="text"
               name="name"
@@ -57,6 +58,7 @@ class Form extends Component {
           <label htmlFor={this.numberInputId} className={styles.label}>
             Number
             <input
+              autoComplete="off"
               className={styles.input}
               type="tel"
               name="number"
