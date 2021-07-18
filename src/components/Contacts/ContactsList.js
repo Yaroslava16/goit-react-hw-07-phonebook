@@ -1,14 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import styles from '../Contacts/Contacts.module.css';
-import {
-  deleteContact,
-  fetchContacts,
-} from '../../redux/phonebook/phonebook-operations';
 import { Component } from 'react';
 
-class Contacts extends Component {
+class ContactsList extends Component {
   componentDidMount() {
     this.props.fetchContacts();
   }
@@ -35,6 +30,8 @@ class Contacts extends Component {
   }
 }
 
+export default ContactsList;
+
 // Contacts.propTypes = {
 //   contacts: PropTypes.arrayOf(
 //     PropTypes.shape({
@@ -45,22 +42,3 @@ class Contacts extends Component {
 //   ).isRequired,
 //   onDelete: PropTypes.func.isRequired,
 // };
-
-const getVisibleContacts = (filter, allContacts) => {
-  const normalizedFilter = filter.toLowerCase();
-
-  return allContacts.filter(({ name }) => {
-    return name.toLowerCase().includes(normalizedFilter);
-  });
-};
-
-const mapStateToProps = ({ phonebook: { filter, contacts } }) => ({
-  contacts: getVisibleContacts(filter, contacts),
-});
-
-const mapDispatchToProps = dispatch => ({
-  onDelete: id => dispatch(deleteContact(id)),
-  fetchContacts: () => dispatch(fetchContacts()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Contacts);

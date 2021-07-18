@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import shortid from 'shortid';
 import { addContact } from '../../redux/phonebook/phonebook-operations';
 import styles from '../Form/Form.module.css';
+import { getAdd } from '../../redux/phonebook/phonebook-selectors';
 
 class Form extends Component {
   state = {
@@ -80,9 +81,7 @@ class Form extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { contacts: state.phonebook.contacts };
-};
+const mapStateToProps = state => ({ contacts: getAdd(state) });
 
 const mapDispatchToProps = dispatch => {
   return {

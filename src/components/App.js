@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import Contacts from './Contacts/Contacts';
+import ContactListContainer from './Contacts/ContactList.container';
 import Form from './Form/Form';
 import Filter from './Filter/Filter';
 import styles from './App.module.css';
@@ -12,7 +12,7 @@ class App extends Component {
         <Form />
         <h2 className={styles.secondTitle}>Contacts</h2>
         <Filter />
-        <Contacts />
+        <ContactListContainer />
       </div>
     );
   }

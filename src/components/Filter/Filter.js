@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './Filter.module.css';
 import { connect } from 'react-redux';
 import { filter } from '../../redux/phonebook/phonebook-actions';
+import { getFilter } from '../../redux/phonebook/phonebook-selectors';
 
 const Filter = ({ value, onChange }) => (
   <label className={styles.label}>
@@ -22,7 +23,7 @@ const Filter = ({ value, onChange }) => (
 // };
 
 const mapStateToProps = state => ({
-  value: state.phonebook.filter,
+  value: getFilter(state),
 });
 
 const mapDispatchToProps = dispatch => ({
